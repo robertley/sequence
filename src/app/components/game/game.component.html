@@ -1,0 +1,5 @@
+<div>
+    <div class="board-row" *ngFor="let row of board.boardspaces">
+        <app-board-square *ngFor="let space of row" [boardspace]="space"></app-board-square>
+    </div>
+</div>

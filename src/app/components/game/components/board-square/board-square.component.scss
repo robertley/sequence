@@ -1,0 +1,14 @@
+.board-square {
+    display: inline-block;
+    width: 50px;
+    height: 75px;
+    border: 1px solid black;
+    margin: 1em 1em 0 0;
+}
+
+.board-text-wrapper {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
