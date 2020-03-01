@@ -11,8 +11,6 @@ export function createBoard(): Board {
     let cards = deck.cards;
     let board: Board = createNullBoard();
     let boardspaces = board.boardspaces;
-    console.log(deck);
-    console.log(board);
 
     // borrowed logic from https://www.geeksforgeeks.org/print-a-given-matrix-in-spiral-form/
 

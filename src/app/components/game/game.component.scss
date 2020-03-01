@@ -1,0 +1,14 @@
+.board-wrapper {
+    display: inline-block;
+}
+.player-wrapper {
+    display: inline-block;
+}
+.game-wrapper {
+    display: flex;
+}
+.player-wrapper {
+    display: flex;
+    align-items: flex-end;
+    margin-left: 2em;
+}

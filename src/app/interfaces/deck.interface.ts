@@ -48,15 +48,12 @@ function createDeck() {
         allCards.push(card);
     }
 
-    console.log("unshuffled", _.cloneDeep(allCards))
-
     return allCards;
 }
 
 function createNormalCard(card: Card, i) {
     card.key = i + 1;
     if (i < 12) {
-        console.log("spade")
         card.suit = 0;
         if (i < 9) {
             card.name = `${i + 2}`;
