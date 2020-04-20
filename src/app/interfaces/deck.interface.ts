@@ -22,14 +22,14 @@ function createDeck() {
             // black jokers
             if (i < 98) {
                 card.key = 0;
-                card.name = 'W';
+                card.name = '%';
                 card.suit = 0;
             }
             // red jokers
             else if (i < 100) {
                 card.key = 0;
-                card.name = 'W';
-                card.suit = 2;
+                card.name = '%';
+                card.suit = 1;
             }
             // one-eyed jacks
             else if (i < 104) {
@@ -123,5 +123,6 @@ export function createUnshuffuledDeck(): Deck {
         cards: null
     };
     deck.cards = createDeck();
+    console.log(deck)
     return deck;
 }

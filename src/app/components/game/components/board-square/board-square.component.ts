@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Boardspace } from 'src/app/interfaces/boardspace.interface';
 import { Card } from 'src/app/interfaces/card.interface';
+import { GameService } from 'src/app/services/game.service';
+import { Player } from 'src/app/interfaces/player.interface';
 
 @Component({
   selector: 'app-board-square',
@@ -12,12 +14,15 @@ export class BoardSquareComponent implements OnInit, OnChanges {
   @Input()
   boardspace: Boardspace;
 
-  @Input()
-  playerHand: Card[];
-
   selectable: boolean;
 
-  constructor() { }
+  player: Player;
+  playerHand: Card[];
+
+  constructor(private gameService: GameService) {
+    this.player = gameService.player;
+    this.playerHand = this.player.hand;
+  }
 
   ngOnInit(): void {
     this.calculateSelectable();
@@ -36,6 +41,12 @@ export class BoardSquareComponent implements OnInit, OnChanges {
       } else {
         this.selectable = false;
       }
+    }
+  }
+
+  playerMove() {
+    if (this.selectable && this.boardspace.occupiedBy === 0) {
+      this.gameService.doTurn(this.player, this.boardspace.key)
     }
   }
 

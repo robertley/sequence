@@ -1,9 +1,11 @@
 <div class="card-container">
     <div class="card-text-wrapper" [ngClass]="[card.suit % 2 === 0 ? 'black' : 'red']">
         {{ card.name }}
-        <span class="symbol" *ngIf="card.suit === 0">♠</span>
-        <span class="symbol" *ngIf="card.suit === 1">♦</span>
-        <span class="symbol" *ngIf="card.suit === 2">♣</span>
-        <span class="symbol" *ngIf="card.suit === 3">♥</span>
+        <span *ngIf="card.name !== '%'">
+            <span class="symbol" *ngIf="card.suit === 0">♠</span>
+            <span class="symbol" *ngIf="card.suit === 1">♦</span>
+            <span class="symbol" *ngIf="card.suit === 2">♣</span>
+            <span class="symbol" *ngIf="card.suit === 3">♥</span>
+        </span>
     </div>
 </div>

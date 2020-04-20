@@ -1,11 +1,10 @@
 <div class="game-wrapper">
     <div class="board-wrapper">
         <div class="board-row" *ngFor="let row of board.boardspaces">
-            <app-board-square *ngFor="let space of row" [boardspace]="space" [playerHand]="player.hand"></app-board-square>
+            <app-board-square *ngFor="let space of row" [boardspace]="space"></app-board-square>
         </div>
     </div>
     <div class="player-wrapper">
-        <app-player-ui [player]="player"></app-player-ui>
+        <app-player-ui></app-player-ui>
     </div>
 </div>
-<button (click)="newHand()">new hand</button>

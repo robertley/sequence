@@ -4,6 +4,7 @@ import * as _ from 'lodash';
 
 export interface Board {
     boardspaces: Boardspace[][];
+    boardspaceMap: Map<string, Boardspace>
 }
 
 export function createBoard(): Board {
@@ -42,6 +43,8 @@ export function createBoard(): Board {
                 boardspace.suit = cards[deckIter].suit;
                 deckIter++;
             }
+            boardspace.key = '' + k + i;
+            board.boardspaceMap.set(boardspace.key, boardspace);
             boardspaces[k][i] = boardspace;
         } 
         k++;
@@ -60,6 +63,8 @@ export function createBoard(): Board {
                 boardspace.suit = cards[deckIter].suit;
                 deckIter++;
             }
+            boardspace.key = '' + i + (n - 1);
+            board.boardspaceMap.set(boardspace.key, boardspace);
             boardspaces[i][n - 1] = boardspace;
         } 
         n--;
@@ -79,6 +84,8 @@ export function createBoard(): Board {
                     boardspace.suit = cards[deckIter].suit;
                     deckIter++;
                 }
+                boardspace.key = '' + (m - 1) + i;
+                board.boardspaceMap.set(boardspace.key, boardspace);
                 boardspaces[m - 1][i] = boardspace;
             } 
             m--; 
@@ -93,6 +100,8 @@ export function createBoard(): Board {
                 boardspace.name = cards[deckIter].name;
                 boardspace.suit = cards[deckIter].suit;
                 deckIter++;
+                boardspace.key = '' + i + l;
+                board.boardspaceMap.set(boardspace.key, boardspace);
                 boardspaces[i][l] = boardspace; 
             } 
             l++; 
@@ -110,7 +119,8 @@ function createNullBoard(): Board {
         spaces.push(_.cloneDeep(row));
     }
     let nullBoard: Board = {
-        boardspaces: spaces
+        boardspaces: spaces,
+        boardspaceMap: new Map()
     }
     return nullBoard;
 }

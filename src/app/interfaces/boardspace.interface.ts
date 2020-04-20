@@ -1,4 +1,5 @@
 export interface Boardspace {
+    key: string;
     cardKey: number;
     name: string;
     suit: number;
@@ -9,6 +10,7 @@ export interface Boardspace {
 
 export function newBoardSpace(): Boardspace {
     return {
+        key: null,
         cardKey: null,
         occupiedBy: 0,
         name: null,

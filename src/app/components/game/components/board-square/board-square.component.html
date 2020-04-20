@@ -1,5 +1,7 @@
-<div class="board-square d-flex justify-content-center">
-    <div class="board-text-wrapper" [ngClass]="[boardspace.suit % 2 === 0 ? 'black' : 'red', selectable ? 'selectable' : 'not-selectable']">
+<div class="board-square d-flex justify-content-center" (click)="playerMove()">
+    <div class="board-text-wrapper"
+        [ngClass]="[boardspace.suit % 2 === 0 ? 'black' : 'red', selectable ? 'selectable' : 'not-selectable',
+                    boardspace.occupiedBy === 1 ? 'player1' : boardspace.occupiedBy === 2 ? 'player2' : '']">
         {{ boardspace.name }}
         <span class="symbol" *ngIf="boardspace.suit === 0">♠</span>
         <span class="symbol" *ngIf="boardspace.suit === 1">♦</span>
